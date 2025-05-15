@@ -7,9 +7,8 @@ from equipos.apiequipos.serializers import EquipoSerializer
 class UserRegisterSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'email', 'username', 'password']
-
-
+        fields = ['id', 'email', 'username', 'password', 'equipo']
+    
 
 
     def create(self, validated_data): # Sobreescribimos el metodo create para que el password sea encriptado

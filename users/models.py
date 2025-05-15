@@ -11,6 +11,7 @@ class User(AbstractUser):
     password = models.CharField(max_length=128)
     equipo = models.ForeignKey(Equipo, on_delete=models.SET_NULL, null=True, blank=True, related_name='miembros')
 
+    
 
 
     USERNAME_FIELD = 'email' # Mediante esta config pediremos como parametro de entrada el email y password en el panel de administración
