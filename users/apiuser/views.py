@@ -27,9 +27,9 @@ class UserInfo(APIView):
         serializer = UserSerializer(request.user)
         return Response(serializer.data)
     
-    def put(self, request):
+    def patch(self, request):
         user = User.objects.get(id=request.user.id)
-        serializer = UserUpdateSerializer(user, request.data)
+        serializer = UserUpdateSerializer(user, request.data, partial=True)
         if serializer.is_valid(raise_exception=True):
             serializer.save()
             return Response(serializer.data)
